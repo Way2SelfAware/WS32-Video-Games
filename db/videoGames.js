@@ -6,9 +6,7 @@ const REPLACE_ME = `SELECT * FROM videosGames`;
 // GET - /api/video-games - get all video games
 async function getAllVideoGames() {
   try {
-    const { rows: videoGames } = await client.query(
-      `SELECT * FROM videosGames`
-    );
+    const { rows: videoGames } = await client.query(`SELECT * FROM videoGames`);
     return videoGames;
   } catch (error) {
     throw new Error("Make sure you have replaced the REPLACE_ME placeholder.");
