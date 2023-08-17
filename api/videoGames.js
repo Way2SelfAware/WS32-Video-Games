@@ -1,17 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const REPLACE_ME = // GET - /api/video-games - get all video games
-  async function getAllVideoGames() {
-    try {
-      const { rows: videoGames } = await client.query();
-      return videoGames;
-    } catch (error) {
-      throw new Error(
-        "Make sure you have replaced the REPLACE_ME placeholder."
-      );
-    }
-  };
+const REPLACE_ME = "HELP REPLACE ME!!!!";
 
 const {
   getAllVideoGames,
@@ -44,7 +34,7 @@ router.get("/:id", async (req, res, next) => {
 // POST - /api/video-games - create a new video game
 router.patch("/", async (req, res, next) => {
   try {
-    const videoGame = await createVideoGame();
+    const videoGame = await createVideoGames(req.params);
     res.send(videoGame);
   } catch (error) {
     next(error);
@@ -54,7 +44,7 @@ router.patch("/", async (req, res, next) => {
 // PUT - /api/video-games/:id - update a single video game by id
 router.put("/:id", async (req, res, next) => {
   try {
-    const videoGame = await updateVideoGame();
+    const videoGame = await updateVideoGame(req.params.id, req.body);
     res.send(videoGame);
   } catch (error) {
     next(error);
